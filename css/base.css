@@ -1,0 +1,14 @@
+html {
+	font-size: 120px;
+	font-family: Arial;
+	background-image: url("/img/bg.jpg");
+	height:100%;
+}
+
+.basebtn {
+	height: 120px;
+	width: 120px; 
+	margin-top: 50px;
+	font-size:100px;
+}
+	

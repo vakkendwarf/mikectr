@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> MikeCounter v0.1 </title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<script src="/socket.io/socket.io.js"></script>
+<link rel="stylesheet" href="odometer/odometer.css" />
+<script src="odometer/odometer.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+
+	var socket = io();
+	
+	socket.on('change_text_main', function(data) {
+		document.getElementById('counter').innerHTML = data.pagetext;
+	});
+
+});
+
+
+</script>
+</head>
+<body>
+<center>
+<p> MIKECOUNTER </p>
+<div id="allcounter">
+<button id="plus" class="basebtn" onclick="buttonClickedPlus()">+</button>
+<span id="counter" class="odometer">???</span>
+<button id="minus" class="basebtn" onclick="buttonClickedMinus()">-</button>
+</center>
+</div>
+<script>
+
+	var socket = io.connect();
+	
+	function buttonClickedPlus(){
+	socket.emit('plus');
+	console.log('cipiec');
+	}
+	
+	function buttonClickedMinus(){
+	socket.emit('minus');
+	console.log('cipiec');
+	}
+</script>
+</body>
+</html>
